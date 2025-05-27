@@ -11,6 +11,9 @@ namespace MyAPI.Controllers
         [HttpGet(Name = "MyCode")]
         public IActionResult GetAllProducts()
         {
+
+            string username = "dont capture";
+            string password = "dont access";
             return Ok(products); // Returns 200 OK with product list
         }
 
