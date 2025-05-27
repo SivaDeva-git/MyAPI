@@ -3,6 +3,7 @@ namespace MyAPI
     public class WeatherForecast
     {
         //These are properties.
+        //THis is New.
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
