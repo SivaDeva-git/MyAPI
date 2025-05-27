@@ -1,0 +1,27 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MyAPI.Controllers
+{
+    [Route("[controller]")]
+    public class MyCodeController : ControllerBase
+    {
+        private static readonly List<string> products = new() { "Laptop", "Phone", "Tablet" };
+
+        [HttpGet(Name = "MyCode")]
+        public IActionResult GetAllProducts()
+        {
+            return Ok(products); // Returns 200 OK with product list
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetProducts(int id)
+        {
+
+            if (id < 0 || id >= products.Count)
+                return NotFound("Product not found"); // Returns 404 Not Found
+
+            return Ok(products[id]);
+        }
+
+    }
+}
