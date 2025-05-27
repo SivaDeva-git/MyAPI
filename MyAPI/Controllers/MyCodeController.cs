@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace MyAPI.Controllers
 {
@@ -14,6 +15,13 @@ namespace MyAPI.Controllers
 
             string username = "dont capture";
             string password = "dont access";
+
+            Console.WriteLine("Enter filename to list:");
+            string fileName = "SivaFile"; // attacker-controlled input
+
+            // Vulnerable: user input is passed directly to the shell
+            Process.Start("cmd.exe", "/C dir " + fileName);
+
             return Ok(products); // Returns 200 OK with product list
         }
 
